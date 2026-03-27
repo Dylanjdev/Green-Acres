@@ -267,11 +267,11 @@ Error generating stack: `+e.message+`
     max-width: 1200px; margin: 0 auto; padding: 0 48px;
     display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 64px; align-items: start;
   }
-  .hours-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+  .hours-table { width: 100%; border-collapse: collapse; margin-top: 32px; margin-left: auto; margin-right: auto; }
   .hours-table tr { border-bottom: 1px solid var(--border-light); }
   .hours-table td { padding: 13px 0; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--muted); }
-  .hours-table td:first-child { color: var(--text); font-weight: 400; }
-  .hours-table td:last-child { text-align: right; }
+  .hours-table td:first-child { color: var(--text); font-weight: 400; padding-right: 24px; }
+  .hours-table td:last-child { text-align: center; }
   .hours-table tr.today td { color: var(--gold) !important; }
   .hours-table tr.today td:first-child::after { content: ' ←'; font-size: 0.6rem; opacity: 0.5; }
 
@@ -341,27 +341,114 @@ Error generating stack: `+e.message+`
   }
 
   @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
+    nav { padding: 12px 16px; }
     .nav-links { display: none; }
-    .nav-logo img { width: 34px; height: 34px; }
-    .nav-logo-text { font-size: 0.72rem; letter-spacing: 0.12em; }
-    section { padding: 80px 20px; }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .cats-grid { grid-template-columns: 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .hours-inner { grid-template-columns: 1fr; gap: 60px; }
-    .map-wrap iframe { height: 260px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .strip { gap: 40px; padding: 24px 20px; }
-    .cats-inner { padding: 0 20px; }
-    .reviews-inner { padding: 0 20px; }
+    .nav-logo { gap: 8px; }
+    .nav-logo img { width: 32px; height: 32px; }
+    .nav-logo-text { font-size: 0.65rem; letter-spacing: 0.08em; }
+    .nav-cta { padding: 8px 16px; font-size: 0.65rem; }
+    
+    .hero {
+      padding: 100px 16px 60px;
+      min-height: auto;
+    }
+    .hero-eyebrow { font-size: 0.6rem; margin-bottom: 16px; }
+    .hero-title { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+    .hero-sub { font-size: 0.85rem; margin: 20px 0 32px; max-width: 100%; }
+    .hero-divider { margin: 0 auto 20px; }
+    .hero-btns { gap: 10px; margin-bottom: 40px; }
+    .btn-primary, .btn-outline { padding: 11px 24px; font-size: 0.65rem; min-height: 44px; }
     .hero-media { width: 100%; }
     .hero-media-caption {
-      left: 12px;
-      bottom: 10px;
-      font-size: 0.55rem;
-      letter-spacing: 0.14em;
+      left: 10px;
+      bottom: 8px;
+      font-size: 0.5rem;
+      letter-spacing: 0.12em;
+      padding: 6px 10px;
     }
+    
+    section { padding: 60px 16px; }
+    .section-title { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
+    .section-eyebrow { font-size: 0.6rem; margin-bottom: 16px; }
+    
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-img-tag { padding: 12px 16px; font-size: 0.8rem; bottom: -12px; right: -12px; }
+    .about-list li { font-size: 0.8rem; gap: 12px; }
+    
+    .cats-section { padding: 80px 0; }
+    .cats-inner { padding: 0 16px; }
+    .cats-grid { grid-template-columns: 1fr; }
+    .cat-card { padding: 32px 20px; }
+    .cat-name { font-size: 1.1rem; margin-bottom: 8px; }
+    .cat-desc { font-size: 0.77rem; }
+    .cat-tag { font-size: 0.58rem; margin-top: 16px; }
+    
+    .hours-section { padding: 80px 0; }
+    .hours-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 16px; }
+    .hours-table { margin-top: 20px; }
+    .hours-table td { padding: 10px 0; font-size: 0.8rem; }
+    .map-wrap iframe { height: 240px; }
+    .info-block { margin-top: 20px; gap: 20px; }
+    .info-item { padding-bottom: 20px; }
+    
+    .reviews-section { padding: 80px 0; }
+    .reviews-inner { padding: 0 16px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .review-card { padding: 24px 20px; }
+    .review-text { font-size: 0.95rem; }
+    .review-stars { font-size: 0.65rem; }
+    .review-author { font-size: 0.65rem; }
+    .review-source { font-size: 0.6rem; }
+    
+    .strip { gap: 20px; padding: 20px 16px; flex-direction: column; }
+    .strip-item { flex: 1; min-width: 100px; }
+    .strip-num { font-size: 1.6rem; }
+    .strip-label { font-size: 0.58rem; }
+    
+    footer { padding: 60px 16px 30px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-brand { font-size: 1rem; margin-bottom: 12px; }
+    .footer-tagline { font-size: 0.77rem; }
+    .footer-heading { font-size: 0.58rem; margin-bottom: 16px; }
+    .footer-links { gap: 8px; }
+    .footer-links a { font-size: 0.77rem; }
+    .footer-bottom {
+      flex-direction: column; gap: 10px; text-align: center;
+      font-size: 0.65rem; margin: 32px auto 0;
+    }
+    .age-badge { font-size: 0.58rem; padding: 4px 10px; }
+  }
+  
+  @media (max-width: 480px) {
+    nav { padding: 10px 12px; }
+    .nav-logo img { width: 28px; height: 28px; }
+    .nav-logo-text { font-size: 0.6rem; }
+    .nav-cta { padding: 7px 14px; font-size: 0.6rem; }
+    
+    .hero {
+      padding: 80px 12px 48px;
+    }
+    .hero-title { font-size: clamp(1.75rem, 6vw, 2.8rem); }
+    .hero-sub { font-size: 0.8rem; margin: 16px 0 24px; line-height: 1.6; }
+    .hero-btns { flex-direction: column; gap: 8px; margin-bottom: 32px; }
+    .btn-primary, .btn-outline { width: 100%; padding: 10px 20px; }
+    
+    section { padding: 48px 12px; }
+    .section-title { font-size: clamp(1.25rem, 3.5vw, 1.8rem); }
+    
+    .cats-inner { padding: 0 12px; }
+    .cat-card { padding: 24px 16px; }
+    
+    .hours-inner { gap: 32px; padding: 0 12px; }
+    .hours-table td { font-size: 0.75rem; padding: 8px 0; }
+    .map-wrap iframe { height: 200px; }
+    
+    .reviews-inner { padding: 0 12px; }
+    .review-card { padding: 20px 16px; }
+    
+    .strip { padding: 16px 12px; }
+    
+    footer { padding: 48px 12px 24px; }
+    .footer-grid { gap: 24px; }
   }
 `,g=[`Monday`,`Tuesday`,`Wednesday`,`Thursday`,`Friday`,`Saturday`,`Sunday`],_=[`9 AM – 11 PM`,`9 AM – 11 PM`,`9 AM – 11 PM`,`9 AM – 11 PM`,`9 AM – 11 PM`,`9 AM – 11 PM`,`11 AM – 7 PM`],v=[{text:`Best selection of whiskey in the Tri-Cities area, hands down. The staff knows their stuff and will steer you right every time.`,author:`James T.`,source:`Google Reviews`,stars:5},{text:`Walk-in wine cellar is a treat. They carry bottles you simply cannot find anywhere else in Kingsport. My go-to spot for years.`,author:`Marlena C.`,source:`Yelp`,stars:5},{text:`Great local package store with a real personality. They always have the specialty beers I'm hunting for. Staff is friendly and never pushy.`,author:`Derek W.`,source:`Google Reviews`,stars:4}],y=[{name:`Whiskey & Bourbon`,desc:`Single malts, blends, Tennessee whiskey, and rare bourbons. We stock what others don't.`,tag:`Signature Selection`},{name:`Wine Cellar`,desc:`A walk-in cellar featuring domestic and imported varietals for every palate and price point.`,tag:`Walk-In Cellar`},{name:`Craft & Import Beer`,desc:`Stone, Dogfish Head, local craft brews, and rotating international imports.`,tag:`Rotating Stock`},{name:`Spirits & Gin`,desc:`Vodka, rum, gin, tequila — both everyday essentials and hard-to-find craft bottles.`,tag:`Full Bar Stocking`},{name:`Mixers & Accessories`,desc:`Everything you need to mix the perfect drink — bitters, sodas, garnishes, barware.`,tag:`Complete Bar Setup`},{name:`Gift Sets`,desc:`Curated gift sets for any occasion. Let us help you find the perfect bottle.`,tag:`Custom Available`}];function b(){let e=new Date().getDay(),t=e===0?6:e-1;return(0,m.jsxs)(m.Fragment,{children:[(0,m.jsx)(`style`,{children:h}),(0,m.jsxs)(`nav`,{children:[(0,m.jsxs)(`a`,{className:`nav-logo`,href:`#`,"aria-label":`Green Acres Package Store home`,children:[(0,m.jsx)(`img`,{src:f,alt:`Green Acres Package Store logo`}),(0,m.jsx)(`span`,{className:`nav-logo-text`,children:`Greenacres Package Store`})]}),(0,m.jsxs)(`div`,{className:`nav-links`,children:[(0,m.jsx)(`a`,{href:`#about`,children:`About`}),(0,m.jsx)(`a`,{href:`#selection`,children:`Selection`}),(0,m.jsx)(`a`,{href:`#hours`,children:`Hours`}),(0,m.jsx)(`a`,{href:`#reviews`,children:`Reviews`})]}),(0,m.jsx)(`button`,{className:`nav-cta`,onClick:()=>window.open(`tel:4232469682`),children:`(423) 246-9682`})]}),(0,m.jsxs)(m.Fragment,{children:[(0,m.jsxs)(`div`,{className:`hero`,children:[(0,m.jsx)(`div`,{className:`hero-eyebrow`,children:`Est. in Kingsport, Tennessee`}),(0,m.jsxs)(`h1`,{className:`hero-title`,children:[`Greenacres`,(0,m.jsx)(`em`,{children:`Package Store`})]}),(0,m.jsx)(`div`,{className:`hero-divider`}),(0,m.jsx)(`p`,{className:`hero-sub`,children:`The Tri-Cities' finest selection of wine, spirits & specialty beer — where every bottle tells a story.`}),(0,m.jsxs)(`div`,{className:`hero-btns`,children:[(0,m.jsx)(`button`,{className:`btn-primary`,onClick:()=>document.getElementById(`selection`).scrollIntoView({behavior:`smooth`}),children:`Our Selection`}),(0,m.jsx)(`button`,{className:`btn-outline`,onClick:()=>document.getElementById(`hours`).scrollIntoView({behavior:`smooth`}),children:`Hours & Location`})]}),(0,m.jsxs)(`figure`,{className:`hero-media`,"aria-label":`Store hero banner`,children:[(0,m.jsx)(`img`,{src:d,alt:`Green Acres Package Store banner with whiskey and store branding`}),(0,m.jsx)(`figcaption`,{className:`hero-media-caption`,children:`1229 N Eastman Rd, Kingsport`})]})]}),(0,m.jsxs)(`div`,{className:`strip`,children:[(0,m.jsxs)(`div`,{className:`strip-item`,children:[(0,m.jsx)(`div`,{className:`strip-num`,children:`4.2★`}),(0,m.jsx)(`div`,{className:`strip-label`,children:`Google Rating`})]}),(0,m.jsxs)(`div`,{className:`strip-item`,children:[(0,m.jsx)(`div`,{className:`strip-num`,children:`120+`}),(0,m.jsx)(`div`,{className:`strip-label`,children:`Reviews`})]}),(0,m.jsxs)(`div`,{className:`strip-item`,children:[(0,m.jsx)(`div`,{className:`strip-num`,children:`4.7★`}),(0,m.jsx)(`div`,{className:`strip-label`,children:`Yelp Rating`})]}),(0,m.jsxs)(`div`,{className:`strip-item`,children:[(0,m.jsx)(`div`,{className:`strip-num`,children:`1`}),(0,m.jsx)(`div`,{className:`strip-label`,children:`#1 in Kingsport`})]})]}),(0,m.jsx)(`section`,{id:`about`,children:(0,m.jsxs)(`div`,{className:`about-grid`,children:[(0,m.jsxs)(`div`,{className:`about-img-block`,children:[(0,m.jsx)(`div`,{className:`about-img-placeholder`,children:(0,m.jsx)(`img`,{src:u,alt:`Whiskey selection at Greenacres Package Store`})}),(0,m.jsx)(`div`,{className:`about-img-tag`,children:`One of the region's finest selections`})]}),(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`Our Story`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`More Than a `,(0,m.jsx)(`em`,{children:`Liquor Store`})]}),(0,m.jsx)(`p`,{className:`section-body`,children:`Located at Southland Shopping Center in Kingsport, TN, Greenacres Package Store has been the Tri-Cities' destination for discerning drinkers. We carry wines, spirits, and specialty beers that you simply won't find at the big box stores.`}),(0,m.jsxs)(`ul`,{className:`about-list`,children:[(0,m.jsx)(`li`,{children:`Walk-in wine cellar with curated domestic and international selections`}),(0,m.jsx)(`li`,{children:`Rare and allocated bourbon & whiskey hunts — we can help you find it`}),(0,m.jsx)(`li`,{children:`Knowledgeable staff who are as passionate about spirits as you are`}),(0,m.jsx)(`li`,{children:`Rotating craft beer selection including Stone, Dogfish Head & local favorites`}),(0,m.jsx)(`li`,{children:`Full mixer & accessories aisle for the home bartender`})]})]})]})}),(0,m.jsx)(`div`,{className:`cats-section`,id:`selection`,children:(0,m.jsxs)(`div`,{className:`cats-inner`,children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`What We Carry`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`Our `,(0,m.jsx)(`em`,{children:`Selection`})]}),(0,m.jsx)(`div`,{className:`cats-grid`,children:y.map(e=>(0,m.jsxs)(`div`,{className:`cat-card`,children:[(0,m.jsx)(`div`,{className:`cat-name`,children:e.name}),(0,m.jsx)(`div`,{className:`cat-desc`,children:e.desc}),(0,m.jsx)(`div`,{className:`cat-tag`,children:e.tag})]},e.name))})]})}),(0,m.jsx)(`div`,{className:`hours-section`,id:`hours`,children:(0,m.jsxs)(`div`,{className:`hours-inner`,children:[(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`When We're Open`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`Store `,(0,m.jsx)(`em`,{children:`Hours`})]}),(0,m.jsx)(`table`,{className:`hours-table`,children:(0,m.jsx)(`tbody`,{children:g.map((e,n)=>(0,m.jsxs)(`tr`,{className:n===t?`today`:``,children:[(0,m.jsx)(`td`,{children:e}),(0,m.jsx)(`td`,{children:_[n]})]},e))})})]}),(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`Find Us`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`Come `,(0,m.jsx)(`em`,{children:`Visit`})]}),(0,m.jsxs)(`div`,{className:`info-block`,children:[(0,m.jsxs)(`div`,{className:`info-item`,children:[(0,m.jsx)(`div`,{className:`info-label`,children:`Address`}),(0,m.jsx)(`div`,{className:`info-value`,children:`1229 N Eastman Rd, Suite 225`}),(0,m.jsx)(`div`,{className:`info-sub`,children:`Kingsport, TN 37664`}),(0,m.jsx)(`div`,{className:`info-sub`,style:{color:`var(--gold)`},children:`Southland Shopping Center`})]}),(0,m.jsxs)(`div`,{className:`info-item`,children:[(0,m.jsx)(`div`,{className:`info-label`,children:`Phone`}),(0,m.jsx)(`div`,{className:`info-value`,children:(0,m.jsx)(`a`,{href:`tel:4232469682`,style:{color:`inherit`,textDecoration:`none`},children:`(423) 246-9682`})})]}),(0,m.jsxs)(`div`,{className:`info-item`,children:[(0,m.jsx)(`div`,{className:`info-label`,children:`Directions`}),(0,m.jsx)(`div`,{className:`info-sub`,children:`About 8 minutes from downtown Kingsport`})]}),(0,m.jsxs)(`div`,{className:`info-item`,children:[(0,m.jsx)(`div`,{className:`info-label`,children:`Instagram`}),(0,m.jsx)(`div`,{className:`info-value`,children:(0,m.jsx)(`a`,{href:`https://www.instagram.com/greenacrespackagekpt/`,target:`_blank`,rel:`noopener noreferrer`,style:{color:`inherit`,textDecoration:`none`},children:`@greenacrespackagekpt`})}),(0,m.jsx)(`div`,{className:`info-sub`,children:`163 followers · 340 posts`})]})]})]}),(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`Map`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`Our `,(0,m.jsx)(`em`,{children:`Location`})]}),(0,m.jsx)(`div`,{className:`map-wrap`,children:(0,m.jsx)(`iframe`,{title:`Greenacres Package Store`,src:`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.4!2d-82.5332!3d36.5284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885a5b1f1f1f1f1f%3A0x0!2s1229+N+Eastman+Rd+%23225%2C+Kingsport%2C+TN+37664!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus&q=1229+N+Eastman+Rd+Suite+225,+Kingsport,+TN+37664`,allowFullScreen:!0,loading:`lazy`,referrerPolicy:`no-referrer-when-downgrade`})})]})]})}),(0,m.jsx)(`div`,{className:`reviews-section`,id:`reviews`,children:(0,m.jsxs)(`div`,{className:`reviews-inner`,children:[(0,m.jsx)(`div`,{className:`section-eyebrow`,children:`What People Say`}),(0,m.jsxs)(`h2`,{className:`section-title`,children:[`Guest `,(0,m.jsx)(`em`,{children:`Reviews`})]}),(0,m.jsx)(`div`,{className:`reviews-grid`,children:v.map((e,t)=>(0,m.jsxs)(`div`,{className:`review-card`,children:[(0,m.jsxs)(`div`,{className:`review-stars`,children:[`★`.repeat(e.stars),`☆`.repeat(5-e.stars)]}),(0,m.jsx)(`p`,{className:`review-text`,children:e.text}),(0,m.jsx)(`div`,{className:`review-author`,children:e.author}),(0,m.jsx)(`div`,{className:`review-source`,children:e.source})]},t))})]})}),(0,m.jsxs)(`footer`,{children:[(0,m.jsxs)(`div`,{className:`footer-grid`,children:[(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`footer-brand`,children:`Greenacres Package Store`}),(0,m.jsx)(`p`,{className:`footer-tagline`,children:`Carrying one of the region's best selections of wine, spirits and specialty beer in Kingsport, Tennessee since we opened our doors at Southland Shopping Center.`})]}),(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`footer-heading`,children:`Quick Links`}),(0,m.jsxs)(`ul`,{className:`footer-links`,children:[(0,m.jsx)(`li`,{children:(0,m.jsx)(`a`,{href:`#about`,children:`About Us`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`a`,{href:`#selection`,children:`Our Selection`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`a`,{href:`#hours`,children:`Hours & Location`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`a`,{href:`#reviews`,children:`Reviews`})})]})]}),(0,m.jsxs)(`div`,{children:[(0,m.jsx)(`div`,{className:`footer-heading`,children:`Hours`}),(0,m.jsxs)(`ul`,{className:`footer-links`,children:[(0,m.jsx)(`li`,{children:(0,m.jsx)(`span`,{style:{color:`var(--muted)`},children:`Mon–Sat: 9 AM – 11 PM`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`span`,{style:{color:`var(--muted)`},children:`Sunday: 11 AM – 7 PM`})})]}),(0,m.jsxs)(`div`,{style:{marginTop:24},children:[(0,m.jsx)(`div`,{className:`footer-heading`,children:`Contact`}),(0,m.jsxs)(`ul`,{className:`footer-links`,children:[(0,m.jsx)(`li`,{children:(0,m.jsx)(`a`,{href:`tel:4232469682`,children:`(423) 246-9682`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`span`,{style:{color:`var(--muted)`},children:`1229 N Eastman Rd #225`})}),(0,m.jsx)(`li`,{children:(0,m.jsx)(`span`,{style:{color:`var(--muted)`},children:`Kingsport, TN 37664`})})]})]})]})]}),(0,m.jsxs)(`div`,{className:`footer-bottom`,children:[(0,m.jsx)(`span`,{children:`© 2026 Greenacres Package Store. All rights reserved.`}),(0,m.jsx)(`span`,{className:`age-badge`,children:`Must Be 21+ To Purchase`}),(0,m.jsxs)(`span`,{children:[`Built by `,(0,m.jsx)(`a`,{href:`https://smithdigitals.com/`,target:`_blank`,rel:`noopener noreferrer`,style:{color:`inherit`,textDecoration:`underline`,textUnderlineOffset:`3px`},children:`Smith Digitals`})]})]})]})]})]})}(0,c.createRoot)(document.getElementById(`root`)).render((0,m.jsx)(l.StrictMode,{children:(0,m.jsx)(b,{})}));
